@@ -23,13 +23,13 @@ def carregar_perguntas():
     perguntas = {
         1:{
             'pergunta':"Qual é o maior planeta do sistema solar?",
-            'resposta':"Júpiter",
-            'alternativas': ['A - Marte','B - Saturno','C - Júpiter']
+            'alternativas': ['A - Marte','B - Saturno','C - Júpiter'],
+            'resposta':"c",
         },
         2:{
             'pergunta':"Quem escreveu a peça 'Romeu e Julieta'?",
-            'resposta':"William Shakespeare",
-            'alternativas': ['A - Charles Dickens','B - William Shakespeare','C - Machado de Assis']
+            'alternativas': ['A - Charles Dickens','B - William Shakespeare','C - Machado de Assis'],
+            'resposta':"b"
         }
     }
     return perguntas
@@ -37,8 +37,12 @@ def carregar_perguntas():
 def perguntar_questao(questao):
         print(questao['pergunta'])
         print(f"{questao['alternativas'][0]}\n{questao['alternativas'][1]}\n{questao['alternativas'][2]}")
-        resposta = input("Qual opção é a correta? ")
-        return resposta
+        while True:
+            resposta = input("Qual opção é a correta? ").strip().lower()
+            if resposta == 'a' or resposta == 'b' or resposta == 'c':
+                return resposta
+            else:
+                print("Opção inválida.")
 
 def validar_resposta(resposta, resposta_certa):
     return resposta == resposta_certa
