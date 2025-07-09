@@ -8,6 +8,7 @@ def main():
                 pontos = calcular_pontuacao(pontos)
         mostrar_resultado(pontos,len(perguntas))
 
+#mostra opções para iniciar ou sair.
 def mostrar_menu():
     while True:
         try:
@@ -22,6 +23,7 @@ def mostrar_menu():
         except ValueError:
             print("Você digitou algo errado. Tente novamente!")
 
+#retorna o conjunto de perguntas.
 def carregar_perguntas():
     perguntas = {
         1:{
@@ -52,6 +54,7 @@ def carregar_perguntas():
     }
     return perguntas
 
+#exibe uma questão e coleta a resposta do jogador.
 def perguntar_questao(questao):
         print(questao['pergunta'])
         print(f"{questao['alternativas'][0]}\n{questao['alternativas'][1]}\n{questao['alternativas'][2]}")
@@ -62,13 +65,16 @@ def perguntar_questao(questao):
             else:
                 print("Opção inválida.")
 
+#verifica se a resposta está correta.
 def validar_resposta(resposta, resposta_certa):
     return resposta == resposta_certa
 
+#soma um ponto a cada acerto.
 def calcular_pontuacao(pontos):
     pontos += 1
     return pontos
 
+#exibe a pontuação final.
 def mostrar_resultado(pontuacao,total):
     print(f"Você acertou: {pontuacao} de {total} perguntas")
 
