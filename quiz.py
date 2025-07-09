@@ -41,7 +41,7 @@ def carregar_perguntas():
         4:{
             'pergunta':"Quem foi o primeiro presidente do Brasil?",
             'alternativas': ['A - Getúlio Vargas','B - Lula','C - Deodoro da Fonseca'],
-            'resposta':"b"
+            'resposta':"c"
         },
         5:{
             'pergunta':"Em que país se localiza a Torre Eiffel?",
