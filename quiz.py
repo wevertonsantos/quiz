@@ -3,7 +3,10 @@ def main():
 
     if mostrar_menu():
         for pergunta in carregar_perguntas():
-            perguntar_questao(carregar_perguntas()[pergunta])
+            print(len(carregar_perguntas()))
+            if validar_resposta(perguntar_questao(carregar_perguntas()[pergunta]),carregar_perguntas()[pergunta]['resposta']):
+                pontos = calcular_pontuacao(pontos)
+                mostrar_resultado(pontos,len(carregar_perguntas()))
 
 def mostrar_menu():
     while True:
@@ -38,13 +41,20 @@ def perguntar_questao(questao):
         print(questao['pergunta'])
         print(f"{questao['alternativas'][0]}\n{questao['alternativas'][1]}\n{questao['alternativas'][2]}")
         while True:
-            resposta = input("Qual opção é a correta? ").strip().lower()
-            if resposta == 'a' or resposta == 'b' or resposta == 'c':
-                return resposta
+            resposta_usuario = input("Qual opção é a correta? ").strip().lower()
+            if resposta_usuario == 'a' or resposta_usuario == 'b' or resposta_usuario == 'c':
+                return resposta_usuario
             else:
                 print("Opção inválida.")
 
 def validar_resposta(resposta, resposta_certa):
     return resposta == resposta_certa
+
+def calcular_pontuacao(pontos):
+    pontos += 1
+    return pontos
+
+def mostrar_resultado(pontuacao,total):
+    print(f"Você acertou: {pontuacao} de {total} perguntas")
 
 main()
