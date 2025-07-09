@@ -32,6 +32,21 @@ def carregar_perguntas():
             'pergunta':"Quem escreveu a peça 'Romeu e Julieta'?",
             'alternativas': ['A - Charles Dickens','B - William Shakespeare','C - Machado de Assis'],
             'resposta':"b"
+        },
+        3:{
+            'pergunta':"Qual é o elemento químico representado pelo símbolo 'O'?",
+            'alternativas': ['A - Ouro','B - Oxigênio','C - Óxido'],
+            'resposta':"b"
+        },
+        4:{
+            'pergunta':"Quem foi o primeiro presidente do Brasil?",
+            'alternativas': ['A - Getúlio Vargas','B - Lula','C - Deodoro da Fonseca'],
+            'resposta':"b"
+        },
+        5:{
+            'pergunta':"Em que país se localiza a Torre Eiffel?",
+            'alternativas': ['A - Itália','B - França','C - Espanha'],
+            'resposta':"b"
         }
     }
     return perguntas
