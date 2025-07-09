@@ -3,7 +3,7 @@ def main():
 
     if mostrar_menu():
         for pergunta in carregar_perguntas():
-            validar_resposta(perguntar_questao(pergunta,carregar_perguntas()),'c')
+            perguntar_questao(carregar_perguntas()[pergunta])
 
 def mostrar_menu():
     while True:
@@ -20,29 +20,25 @@ def mostrar_menu():
             print("Você digitou algo errado. Tente novamente!")
 
 def carregar_perguntas():
-    lista_perguntas = {
+    perguntas = {
         1:{
             'pergunta':"Qual é o maior planeta do sistema solar?",
-            'resposta':""
+            'resposta':"Júpiter",
+            'alternativas': ['A - Marte','B - Saturno','C - Júpiter']
+        },
+        2:{
+            'pergunta':"Quem escreveu a peça 'Romeu e Julieta'?",
+            'resposta':"William Shakespeare",
+            'alternativas': ['A - Charles Dickens','B - William Shakespeare','C - Machado de Assis']
         }
     }
-    return ["Qual é o maior planeta do sistema solar?","Quem escreveu a peça 'Romeu e Julieta'?","Em que país se localiza a Torre Eiffel?","Qual é o elemento químico representado pelo símbolo 'O'?","Quem foi o primeiro presidente do Brasil?"]
+    return perguntas
 
-def perguntar_questao(questao,perguntas):
-    if perguntas.index(questao) == 0:
-        print(questao)
-        resposta = input("A - Marte\nB - Saturno\nC - Júpiter\nOpção: ").strip().lower()
-        if resposta == "a" or resposta == "b" or resposta == "c":
-            return resposta
-        else:
-            print("Resposta não existe.")
-    elif perguntas.index(questao) == 1:
-        print(questao)
-        resposta = input("A - Charles Dickens\nB - William Shakespeare\nC - Machado de Assis\nOpção: ").strip().lower()
-        if resposta == "a" or resposta == "b" or resposta == "c":
-            return resposta
-        else:
-            print("Resposta não existe.")
+def perguntar_questao(questao):
+        print(questao['pergunta'])
+        print(f"{questao['alternativas'][0]}\n{questao['alternativas'][1]}\n{questao['alternativas'][2]}")
+        resposta = input("Qual opção é a correta? ")
+        return resposta
 
 def validar_resposta(resposta, resposta_certa):
     return resposta == resposta_certa
