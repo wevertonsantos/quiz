@@ -3,10 +3,9 @@ def main():
 
     if mostrar_menu():
         for pergunta in carregar_perguntas():
-            print(len(carregar_perguntas()))
             if validar_resposta(perguntar_questao(carregar_perguntas()[pergunta]),carregar_perguntas()[pergunta]['resposta']):
                 pontos = calcular_pontuacao(pontos)
-                mostrar_resultado(pontos,len(carregar_perguntas()))
+        mostrar_resultado(pontos,len(carregar_perguntas()))
 
 def mostrar_menu():
     while True:
